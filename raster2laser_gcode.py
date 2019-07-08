@@ -71,6 +71,9 @@ class GcodeExport(inkex.Effect):
 		
 		# Homing
 		self.OptionParser.add_option("","--homing",action="store", type="int", dest="homing", default="1",help="")
+		
+		# Define Position (G92) - CSONNECK
+		self.OptionParser.add_option("","--DefPos",action="store", type="int", dest="DefPos", default="1",help="")
 
 		# Commands
 		self.OptionParser.add_option("","--laseron", action="store", type="string", dest="laseron", default="M03", help="")
@@ -426,6 +429,7 @@ class GcodeExport(inkex.Effect):
 			
 			#Configurazioni iniziali standard Gcode
 			file_gcode.write('; Generated with:\n; "Raster 2 Laser Gcode generator"\n; by 305 Engineering\n;\n;\n;\n')
+			
 			#HOMING
 			if self.options.homing == 1:
 				file_gcode.write('G28; home all axes\n')
@@ -433,10 +437,16 @@ class GcodeExport(inkex.Effect):
 				file_gcode.write('$H; home all axes\n')
 			else:
 				pass
+				
 			file_gcode.write('G21; Set units to millimeters\n')			
 			file_gcode.write('G90; Use absolute coordinates\n')				
-			file_gcode.write('G92; Coordinate Offset\n')	
-
+			
+			# Define Position - G92 - CSONNECK
+			if self.options.DefPos == 2:
+				file_gcode.write('G92; Coordinate Offset\n')
+			else:
+				pass
+			
 			#Creazione del Gcode
 			
 			#allargo la matrice per lavorare su tutta l'immagine
@@ -562,7 +572,3 @@ def _main():
 
 if __name__=="__main__":
 	_main()
-
-
-
-
