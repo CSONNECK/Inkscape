@@ -1,11 +1,10 @@
 # Various Inkscape extensions
 
  - Raster 2 Laser GCode generator
- - 
+ - Added Mach3 fonctionnality - By CSONNECK --> https://www.youtube.com/watch?v=I0V7Ks5T5Sk
  
 #Descriptions
 - Raster 2 Laser GCode generator is an extension to generate Gcode for a laser cutter/engraver (or pen plotter), it can generate various type of outputs from a simple B&W (on/off) to a more detailed Grayscale (pwm)
-
 
 #Installing:
 
@@ -35,11 +34,17 @@ for unix (& mac maybe) change the permission on the file:
 - Step 2) Draw or import the image
 
 - Step 3) To run the extension go to: Extension > 305 Engineering > Raster 2 Laser GCode generator
-
+          For Mach3 --> See my video on Youtube :https://www.youtube.com/watch?v=I0V7Ks5T5Sk
+                    Homing : No Homing
+                    G92 : None (Mach3)
 - Step 4) Play!
 
 
 
 
 #Note
-I have created all the file except for png.py , see that file for details on the license
+I only modified the following files:
+ - raster2laser_gcode.inx
+ - raster2laser_gcode.py
+ 
+ Enjoy and Share
