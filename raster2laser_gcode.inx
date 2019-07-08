@@ -67,7 +67,7 @@
 		<_item value="16">16</_item>  <!-- 256/16 -->
 		<_item value="32">8</_item>  <!-- 256/32 -->
 	</param>	
-
+ 
 	
 	<!-- Velocità Nero e spostamento -->
 	<param name="speed_ON" type="int" min="1" max="5000" gui-text="Engraving speed">200</param>
@@ -79,7 +79,13 @@
 	<param name="homing" type="enum" gui-text="Homing ?">
 		<_item value="1">G28 (Standard)</_item>
 		<_item value="2">$H (GRBL)</_item>
-		<_item value="3">No Homing</_item>
+		<_item value="3">No Homing (Mach3)</_item>
+	</param>
+
+	<!-- Define Position - CSONNECK -->
+	<param name="DefPos" type="enum" gui-text="G92 ?">
+		<_item value="1">None</_item>
+		<_item value="2">G92 (Standard)</_item>
 	</param>
 	
 	<param name="laseron" type="string"  gui-text="Laser ON Command">M03</param>
@@ -107,5 +113,3 @@
     	<command reldir="extensions" interpreter="python">raster2laser_gcode.py</command>
     </script>
 </inkscape-extension>
-
-
